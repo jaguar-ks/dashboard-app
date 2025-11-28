@@ -1,0 +1,51 @@
+generator client {
+	provider = "prisma-client-js"
+  engineType = "library"
+}
+
+datasource db {
+	provider = "postgresql"
+	url      = env("DATABASE_URL")
+}
+
+model Agency {
+	id         String    @id @default(uuid())
+	name       String
+	city       String?
+	state      String?
+	address    String?
+	zipcode    String?
+	phone      String?
+	website    String?
+	createdAt  DateTime  @default(now())
+	updatedAt  DateTime  @updatedAt
+
+	contacts   Contact[]
+}
+
+model Contact {
+	id             String   @id @default(uuid())
+	firstName      String?
+	lastName       String?
+	email          String?  @unique
+	phone          String?
+	title          String?
+	emailType      String?
+	contactFormUrl String?
+	department     String?
+	createdAt      DateTime @default(now())
+	updatedAt      DateTime @updatedAt
+
+	agencyId String?
+	agency   Agency?  @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+}
+
+/// Tracks how many contact views a user has consumed for a given calendar date.
+model UserUsage {
+	id        Int      @id @default(autoincrement())
+	userId    String
+	date      DateTime // store date at midnight UTC for uniqueness per-day
+	viewCount Int      @default(0)
+
+	@@unique([userId, date])
+}
