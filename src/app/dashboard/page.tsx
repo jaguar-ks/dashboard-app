@@ -256,7 +256,7 @@ function DashboardContent() {
                     {/* Page Indicator */}
                     <div className="flex items-center justify-center mt-6">
                         <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                            Page {agencyPage} of {Math.ceil(allAgencies.length / itemsPerPage)}
+                          Page {page} of 5
                         </span>
                     </div>
                   </>
