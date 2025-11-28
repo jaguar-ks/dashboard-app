@@ -69,7 +69,7 @@ function DashboardContent() {
     if (activeTab !== 'contacts') return
     setLoading(true)
     setPageTransition(true)
-    fetch(`/ api / contacts ? page = ${page} `)
+    fetch(`/api/contacts?page=${page}`)
       .then((r) => r.json())
       .then((res) => {
         if (res?.error) {
@@ -116,10 +116,10 @@ function DashboardContent() {
               setActiveTab('agencies')
               setAgencyPage(1)
             }}
-            className={`px - 4 py - 1.5 text - sm font - medium rounded - md transition - all ${activeTab === 'agencies'
-              ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-sm'
-              : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200'
-              } `}
+            className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${activeTab === 'agencies'
+                ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-sm'
+                : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200'
+              }`}
           >
             Agencies
           </button>
@@ -128,10 +128,10 @@ function DashboardContent() {
               setActiveTab('contacts')
               setPage(1)
             }}
-            className={`px - 4 py - 1.5 text - sm font - medium rounded - md transition - all ${activeTab === 'contacts'
-              ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-sm'
-              : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200'
-              } `}
+            className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${activeTab === 'contacts'
+                ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-sm'
+                : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200'
+              }`}
           >
             Contacts
           </button>
@@ -255,9 +255,9 @@ function DashboardContent() {
 
                     {/* Page Indicator */}
                     <div className="flex items-center justify-center mt-6">
-                      <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                        Page {page}
-                      </span>
+                        <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                            Page {agencyPage} of {Math.ceil(allAgencies.length / itemsPerPage)}
+                        </span>
                     </div>
                   </>
                 </div>
