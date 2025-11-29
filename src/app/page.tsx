@@ -18,6 +18,12 @@ export default function HomePage() {
       description: 'Access up to 50 contacts daily',
       href: '/dashboard?tab=contacts',
     },
+    {
+      emoji: '🌙',
+      title: 'Dark Mode',
+      description: 'Toggle theme anytime',
+      onClick: toggleTheme,
+    },
   ]
 
   return (
@@ -47,6 +53,7 @@ export default function HomePage() {
               <CardWrapper
                 key={card.title}
                 href={card.href as string}
+                onClick={card.onClick}
                 className="group p-6 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer animate-slide-up"
                 style={{
                   animationDelay: `${300 + index * 100}ms`,
