@@ -124,7 +124,3 @@ src/
 └── lib/                  # Utilities & Configuration
     └── prisma.ts         # Prisma Client Instance
 ```
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
