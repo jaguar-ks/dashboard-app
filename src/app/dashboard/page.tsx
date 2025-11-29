@@ -117,8 +117,8 @@ function DashboardContent() {
               setAgencyPage(1)
             }}
             className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${activeTab === 'agencies'
-                ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-sm'
-                : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200'
+              ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-sm'
+              : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200'
               }`}
           >
             Agencies
@@ -129,8 +129,8 @@ function DashboardContent() {
               setPage(1)
             }}
             className={`px-4 py-1.5 text-sm font-medium rounded-md transition-all ${activeTab === 'contacts'
-                ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-sm'
-                : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200'
+              ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-sm'
+              : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200'
               }`}
           >
             Contacts
@@ -157,8 +157,8 @@ function DashboardContent() {
               <>
                 {/* Scrollable Grid Container */}
                 <div className="relative">
-                  <div className="max-h-[600px] overflow-y-auto scrollbar-thin pr-2">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                  <div className="max-h-[calc(100vh-280px)] overflow-y-auto scrollbar-thin pr-2">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
                       {agencies.map((a, i) => (
                         <div key={a.id} className="animate-slide-up" style={{ animationDelay: `${i * 50} ms` }}>
                           <AgencyCard agency={a} />
@@ -173,9 +173,9 @@ function DashboardContent() {
                       <button
                         onClick={() => setAgencyPage((p) => Math.max(1, p - 1))}
                         disabled={agencyPage === 1 || loading}
-                        className="fixed left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white dark:bg-zinc-800 border-2 border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:shadow-lg flex items-center justify-center text-zinc-700 dark:text-zinc-200"
+                        className="fixed left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white dark:bg-zinc-800 border-2 border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:shadow-lg flex items-center justify-center text-zinc-700 dark:text-zinc-200"
                       >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                       </button>
@@ -183,9 +183,9 @@ function DashboardContent() {
                       <button
                         onClick={() => setAgencyPage((p) => p + 1)}
                         disabled={agencyPage >= Math.ceil(allAgencies.length / itemsPerPage) || loading}
-                        className="fixed right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white dark:bg-zinc-800 border-2 border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:shadow-lg flex items-center justify-center text-zinc-700 dark:text-zinc-200"
+                        className="fixed right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white dark:bg-zinc-800 border-2 border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:shadow-lg flex items-center justify-center text-zinc-700 dark:text-zinc-200"
                       >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </button>
@@ -221,8 +221,8 @@ function DashboardContent() {
               <>
                 {/* Scrollable Grid Container */}
                 <div className="relative">
-                  <div className="max-h-[600px] overflow-y-auto scrollbar-thin pr-2">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div className="max-h-[calc(100vh-330px)] overflow-y-auto scrollbar-thin pr-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                       {contacts.map((c, i) => (
                         <div key={c.id} className="animate-slide-up" style={{ animationDelay: `${i * 50} ms` }}>
                           <ContactCard contact={c} />
@@ -236,9 +236,9 @@ function DashboardContent() {
                     <button
                       onClick={() => setPage((p) => Math.max(1, p - 1))}
                       disabled={page === 1 || loading}
-                      className="fixed left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white dark:bg-zinc-800 border-2 border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:shadow-lg flex items-center justify-center text-zinc-700 dark:text-zinc-200"
+                      className="fixed left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white dark:bg-zinc-800 border-2 border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:shadow-lg flex items-center justify-center text-zinc-700 dark:text-zinc-200"
                     >
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                       </svg>
                     </button>
@@ -246,18 +246,18 @@ function DashboardContent() {
                     <button
                       onClick={() => setPage((p) => p + 1)}
                       disabled={loading || contacts.length === 0 || (limitReached && page >= 5)}
-                      className="fixed right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white dark:bg-zinc-800 border-2 border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:shadow-lg flex items-center justify-center text-zinc-700 dark:text-zinc-200"
+                      className="fixed right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white dark:bg-zinc-800 border-2 border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:shadow-lg flex items-center justify-center text-zinc-700 dark:text-zinc-200"
                     >
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
 
                     {/* Page Indicator */}
                     <div className="flex items-center justify-center mt-6">
-                        <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                          Page {page} of 5
-                        </span>
+                      <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                        Page {page} of 5
+                      </span>
                     </div>
                   </>
                 </div>
