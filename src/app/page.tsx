@@ -18,12 +18,6 @@ export default function HomePage() {
       description: 'Access up to 50 contacts daily',
       href: '/dashboard?tab=contacts',
     },
-    {
-      emoji: '🌙',
-      title: 'Dark Mode',
-      description: 'Toggle theme anytime',
-      onClick: toggleTheme,
-    },
   ]
 
   return (
